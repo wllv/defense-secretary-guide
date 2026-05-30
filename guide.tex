@@ -1,0 +1,571 @@
+\documentclass[12pt,a4paper,openany]{ctexbook}
+
+% === 页面设置 ===
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.8cm,right=2.8cm]{geometry}
+
+% === 字体与颜色 ===
+\usepackage{amssymb}
+\usepackage{fontspec}
+\setmonofont{Microsoft YaHei}
+\usepackage{xcolor}
+\definecolor{lzublue}{HTML}{003D7C}
+\definecolor{notebg}{HTML}{F5F7FA}
+\definecolor{noteframe}{HTML}{B0BEC5}
+\definecolor{warnbg}{HTML}{FFF8E1}
+\definecolor{warnframe}{HTML}{FFB300}
+
+% === 链接 ===
+\usepackage[colorlinks=true,linkcolor=lzublue,urlcolor=lzublue,citecolor=lzublue]{hyperref}
+\usepackage{xurl}
+
+% === 表格 ===
+\usepackage{booktabs}
+\usepackage{array}
+
+% === 页眉页脚 ===
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{gray}博士学位论文答辩秘书经验指南}
+\fancyhead[R]{\small\color{gray}\leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% === 标题格式 ===
+\ctexset{
+  chapter = {
+    name     = {},
+    number   = {},
+    format   = \LARGE\bfseries\color{lzublue},
+    beforeskip = 20pt,
+    afterskip  = 20pt,
+  },
+  section = {
+    format   = \Large\bfseries\color{lzublue},
+    beforeskip = 16pt,
+    afterskip  = 10pt,
+  },
+  subsection = {
+    format   = \large\bfseries\color{lzublue},
+    beforeskip = 12pt,
+    afterskip  = 8pt,
+  },
+}
+
+% === 列表 ===
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\setlist[enumerate]{label=\arabic*.}
+
+% === 提示框 ===
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{tipbox}{
+  colback=notebg,colframe=noteframe,arc=3mm,
+  left=4mm,right=4mm,top=2mm,bottom=2mm,
+  before skip=8pt,after skip=8pt,
+}
+\newtcolorbox{warnbox}{
+  colback=warnbg,colframe=warnframe,arc=3mm,
+  left=4mm,right=4mm,top=2mm,bottom=2mm,
+  before skip=8pt,after skip=8pt,
+}
+
+% === 杂项 ===
+\newcommand{\todoitem}[1]{\item[\textcolor{lzublue}{$\square$}] #1}
+\newcommand{\important}[1]{\textbf{\color{red}#1}}
+
+\title{\vspace{2cm}\Huge\bfseries\color{lzublue}博士学位论文答辩秘书经验指南\vspace{1cm}}
+\author{\Large 吕万里}
+\date{\Large 2026 年 5 月}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\vfill
+\begin{center}
+\large
+本文档托管于 GitHub：\url{https://github.com/wllv/defense-secretary-guide}
+
+\bigskip
+如有疑问或建议，欢迎提 Issue 或 PR。
+\end{center}
+\newpage
+
+\tableofcontents
+\newpage
+
+% ============================================================
+% 第零章：引言
+% ============================================================
+\chapter{引言}
+
+\section{作者说明}
+
+吕万里博士，先后担任过五位博士生、一位硕士生的答辩秘书。以下内容基于本人经历，结合王之恒博士、耿晶博士、郝艺伟博士的宝贵经验整理，供后续担任答辩秘书的同学参考。
+
+\section{关键时间}
+
+\begin{itemize}
+  \item \textbf{预答辩}与正式答辩之间应间隔至少\textbf{两周}，给答辩人留足时间根据预答辩反馈修改PPT和论文。
+  \item \textbf{正式答辩}须在每年\textbf{5月30日前}完成（兰州大学规定）。
+\end{itemize}
+
+\section{总则}
+
+本指南依据《兰州大学研究生学位论文答辩要求》（全文链接：\url{https://ge.lzu.edu.cn/xueweishouyu/guizhangzhidu/lunwenguanli/2020/1223/158945.html}）编写，关键规定摘录如下：
+
+\begin{itemize}
+  \item 博士学位论文答辩委员会由5--7人组成，其中校外专家\textbf{至少2人}。
+  \item 硕士学位论文答辩委员会由3--5人组成，其中校外专家\textbf{至少1人}。
+  \item 导师不得担任答辩委员会委员，但须列席。
+  \item 答辩表决采用无记名投票，同意票$\geq 2/3$方为通过。
+\end{itemize}
+
+其余以学校最新文件为准。
+
+\section{答辩秘书的职责}
+
+答辩秘书不是答辩委员会成员，不参与学术评议，而是负责整个答辩过程的行政和记录工作。核心职责：
+
+\begin{enumerate}
+  \item \textbf{预答辩期间}：组织预答辩、记录委员意见、将反馈整理给答辩人。
+  \item \textbf{正式答辩前}：协助准备材料、协调时间地点、发送邀请函。
+  \item \textbf{答辩当天}：记录答辩过程、汇总决议、处理突发状况。
+  \item \textbf{答辩后}：整理归档所有材料，确保符合学位办要求。
+\end{enumerate}
+
+% ============================================================
+% 第一章：预答辩
+% ============================================================
+\chapter{预答辩}
+
+预答辩（pre-defense）是正式答辩前的一次内部演练。核心目的不是表决，而是让委员会给答辩人提供修改意见。
+
+\section{时间约束}
+
+\begin{itemize}
+  \item 预答辩应至少在正式答辩\textbf{两周前}进行。
+  \item 正式答辩须在\textbf{每年5月30日前}完成（兰州大学规定）。
+  \item 倒推下来，预答辩最晚约在5月10--15日，建议安排得更早。
+\end{itemize}
+
+\begin{tipbox}
+以正式答辩定在5月25日为例：5月8日左右预答辩（间隔17天）$\rightarrow$ 5月9--22日答辩人修改 $\rightarrow$ 5月25日正式答辩。
+\end{tipbox}
+
+\section{前置条件}
+
+预答辩安排之前，秘书应确认以下事项已完成：
+
+\begin{itemize}
+  \item 导师已经看过并修改过答辩人的PPT。
+  \item 答辩人主动把PPT发给龙老师看了一遍。
+\end{itemize}
+
+\begin{warnbox}
+这两件事不做的话，上了预答辩场面容易出问题。
+\end{warnbox}
+
+\section{第一步：商定时间}
+
+\begin{enumerate}
+  \item 与答辩人及其导师沟通，初步确定一个预答辩时间窗口。
+  \item 在"核结构与核天体团队"微信群内询问各位老师的时间，汇总可用时段。
+  \item 选定最多老师能出席的时间，最终确认。
+\end{enumerate}
+
+\section{第二步：预订场地 + 排日程表 + 发通知}
+
+时间定下后，三件事并行推进：
+
+\subsection{预订教室或会议室}
+
+建议预订团队常用的场地（如现物楼214）。提前确认投影、座位数是否满足需求。
+
+\subsection{排预答辩日程表}
+
+按照每位答辩人的题目和导师信息排顺序，做成日程表文件（姓名、导师、论文题目）。实例见 \texttt{templates/预答辩日程表.docx}。
+
+\subsection{在微信群发通知}
+
+通知格式：日期时间 + 地点 + 每位答辩人的\textbf{姓名、导师、论文题目}。例如：
+
+\begin{tipbox}
+各位老师, 同学好! 本周三上午8:30, 在***楼***会议室进行5位核物理方向拟毕业博士生的预答辩。
+
+\bigskip
+*** (导师: *** 教授): 基于abc模型关于def的研究
+
+*** (导师: *** 教授): 基于abc模型关于def的研究
+
+*** (导师: *** 教授): 基于abc模型关于def的研究
+
+*** (导师: *** 教授): 基于abc模型关于def的研究
+
+*** (导师: *** 教授): 基于abc模型关于def的研究
+
+\bigskip
+这是日程表。欢迎大家参加。
+\end{tipbox}
+
+通知发送时同步附上日程表文件。
+
+\section{第三步：材料准备}
+
+\begin{itemize}
+  \todoitem{答辩人PPT、论文初稿}
+  \todoitem{录音设备：答辩秘书或答辩人自己录音，覆盖PPT汇报全程和评委点评}
+  \todoitem{计时：秘书或指定一名同学，记录答辩人每一部分的讲解时间（引言、理论框架、结果讨论、总结与展望、致谢）}
+  \todoitem{按出席老师人数打印论文，每位老师一份}
+  \todoitem{茶歇（视预算而定）}
+\end{itemize}
+
+\begin{warnbox}
+预答辩\textbf{不需要}签到表、表决票和决议书，也无需老师签字。核科学与技术学院没有预答辩的明文规定和专用表格，其他学院可能有，以各自学院要求为准。
+\end{warnbox}
+
+\section{预答辩当天流程}
+
+预答辩由\important{答辩秘书主持}。
+
+\begin{enumerate}
+  \item 秘书开场，介绍答辩人及论文题目。
+  \item 答辩人陈述（与正式答辩时长一致，30--40分钟）。
+  \item 委员逐一提出修改意见。
+  \item 同学们提出意见。
+\end{enumerate}
+
+\section{你的主要任务：记录意见}
+
+核心工作是记录意见。预答辩不涉及表决，你的精力集中在：
+
+\begin{itemize}
+  \item 记录每位委员的意见。
+  \item 会议结束后发给答辩人。
+\end{itemize}
+
+\subsection{反馈整理格式建议}
+
+委员意见大致有三类：
+
+\begin{enumerate}
+  \item \textbf{PPT修改}：逻辑、结构、图表、表述、时间控制。
+  \item \textbf{论文修改}：章节逻辑、数据补充、格式规范。
+  \item \textbf{答辩技巧}：口头表达、提问应对。
+\end{enumerate}
+
+\begin{tipbox}
+我当时的做法：预答辩时录了音（征得同意），回去后对着录音逐条整理，避免遗漏。答辩人普遍反馈这份整理比他们自己记的要全得多。
+\end{tipbox}
+
+% ============================================================
+% 第二章：正式答辩前准备
+% ============================================================
+\chapter{正式答辩前准备}
+
+\section{时间线概览}
+
+以正式答辩日期为D日。预答辩应已在 D--14 或更早完成。
+
+\begin{itemize}
+  \item D--30前：导师确定答辩委员会名单，告知秘书。
+  \item D--14：预订答辩教室/会议室。
+  \item D--7：给答辩委员会委员发送通知邮件（含论文、评阅书、日程表、海报）。
+  \item D--7：答辩决议草稿、答辩记录初稿（学生拟写，导师修改）。
+  \item D--3：打印表决票并拿到学院办公室盖章；提醒答辩人发布系统公告、张贴海报。
+  \item D--1：打扫教室卫生、测试录像设备、购买茶歇和鲜花、打印答辩酬金明细第一页。
+  \item D日：正式答辩。
+\end{itemize}
+
+\begin{warnbox}
+关键约束：正式答辩必须在\textbf{5月30日前}完成。
+\end{warnbox}
+
+\section{答辩委员会成员确认}
+
+答辩委员会名单由答辩人导师确定后告知答辩秘书。秘书无需自行组建。
+
+\section{第一步：预订教室或会议室}
+
+确认答辩日期后，预订正式答辩用的教室或会议室。提前确认投影、座位数、是否支持线上/混合答辩。
+
+\section{第二步：制作答辩日程表}
+
+按答辩人信息制作日程表，包含日期、时间、地点、答辩人姓名、导师、论文题目。每位答辩人陈述时间一般30--40分钟。实例见 \texttt{templates/答辩日程安排.docx}。
+
+\section{第三步：制作答辩海报}
+
+传统做法：答辩人各自制作自己的海报，发给秘书汇总。海报内容包含答辩人姓名、导师、论文题目、答辩时间、地点、答辩委员会成员。实例见 \texttt{templates/答辩海报.pptx}。
+
+\section{第四步：发送答辩委员会通知邮件}
+
+一般在正式答辩前\textbf{1周}，给答辩委员会每位委员发送通知邮件。
+
+邮件内容包括：
+\begin{itemize}
+  \item 答辩人信息。
+  \item 该委员担任的角色（主席或委员）。
+  \item 答辩时间、地点。
+  \item 委员的银行信息（用于支付答辩酬金），包括：银行卡号、开户行、开户行所在省市、身份证号、手机号。
+\end{itemize}
+
+邮件附件包括：
+\begin{itemize}
+  \item 答辩人学位论文。
+  \item 论文盲审评阅书（一般3份）。
+  \item 答辩日程表。
+  \item 答辩海报。
+\end{itemize}
+
+实例见 \texttt{templates/答辩委员会邮件.docx}。
+
+\section{第五步：答辩前3天}
+
+\begin{itemize}
+  \todoitem{提醒答辩人在研究生系统内发布答辩公告}
+  \todoitem{提醒答辩人在学校合适位置张贴答辩海报}
+\end{itemize}
+
+\section{第六步：学位申请书与表决票}
+
+答辩人填写学位申请书中与答辩相关部分的基本信息，包括：
+
+\begin{itemize}
+  \item 表决票。
+  \item 答辩决议。
+  \item 答辩记录。
+\end{itemize}
+
+申请书文件可从兰州大学学位与研究生教育网下载（\url{https://ge.lzu.edu.cn/xiazaizhuanqu/xuewei/index.html}），答辩人所在班级群也会提供。\textbf{以班级群提供的文件为准}。
+
+\important{秘书须打印足够份数的表决票，并拿到学院办公室盖章。}实例见 \texttt{templates/表决票.doc}。
+
+\section{第七步：答辩决议与答辩记录}
+
+\textbf{答辩记录}：答辩人自行拟写初稿，并找导师修改。
+
+\textbf{答辩决议}：秘书根据答辩人的论文准备决议草稿，结构为五段：
+
+\begin{enumerate}
+  \item 第一段：说明选题意义。
+  \item 第二段：说明论文的主要内容。
+  \item 第三段：点评学位论文。
+  \item 第四段：点评答辩过程。
+  \item 第五段：对未来工作的建议。
+\end{enumerate}
+
+实例见 \texttt{templates/答辩决议.doc}。
+
+\section{第八步：答辩酬金明细}
+
+秘书填写答辩委员会酬金明细，打印第一页，在答辩当天请各答辩委员签字。实例见 \texttt{templates/答辩委员酬金明细.docx}。
+
+\section{第九步：制作答辩合影背景PPT}
+
+秘书制作答辩合影用的背景PPT，答辩当天投屏作为合影背景。实例见 \texttt{templates/合影背景.pptx}。
+
+\section{第十步：答辩前一天}
+
+\begin{itemize}
+  \todoitem{组织课题组同学打扫教室/会议室卫生}
+  \todoitem{购买茶歇（视预算而定）}
+  \todoitem{买花：一般答辩人一捧，导师一捧}
+  \todoitem{指定两位同学，测试录像设备}
+  \todoitem{提醒答辩人打印足额份数的最新版论文，供答辩当天评委翻阅}
+  \todoitem{提醒答辩人答辩当天着正装}
+  \todoitem{与答辩人和导师提前预订答辩后聚餐地点（自费）}
+  \todoitem{秘书打印足额份数的答辩日程表、兰州大学研究生学位论文答辩要求（\url{https://ge.lzu.edu.cn/xueweishouyu/guizhangzhidu/lunwenguanli/2020/1223/158945.html}），装订好，答辩当天与学位论文一同分发给各位委员}
+\end{itemize}
+
+\section{纸质材料汇总}
+
+答辩当天应备齐以下纸质文件，按委员人数各打印足额份数：
+
+\begin{enumerate}
+  \item 盖章的表决票。
+  \item 答辩酬金明细表。
+  \item 答辩人学位论文。
+  \item 答辩日程表。
+  \item 兰州大学研究生学位论文答辩要求。
+\end{enumerate}
+
+% ============================================================
+% 第三章：正式答辩当天流程
+% ============================================================
+\chapter{正式答辩当天流程}
+
+\begin{warnbox}
+当天节奏紧凑，建议提前把这份清单打印出来放桌上，做完一项划一项。
+\end{warnbox}
+
+\section{到达（提前30分钟）}
+
+\begin{itemize}
+  \todoitem{答辩人将PPT复制到答辩用的电脑上，确保显示正常}
+  \todoitem{调试投影和屏幕共享}
+  \todoitem{摆好水、茶歇}
+  \todoitem{把材料（日程表、答辩要求、学位论文）按委员分好，摆在对应座位上}
+  \todoitem{线上会议开启等待室/录制（如有线上）}
+  \todoitem{提醒尚未回复银行信息的答辩委员提交银行卡号、开户行、开户行所在省市、身份证号、手机号（有的委员较忙，邮件中可能忘了写）}
+\end{itemize}
+
+\section{答辩中的记录}
+
+核心工作是答辩记录。不是逐字笔录，而是记录核心内容：
+
+\begin{itemize}
+  \item 委员提问（每位委员通常2--3个问题）。
+  \item 答辩人回答要点。
+  \item 讨论阶段的主要意见。
+\end{itemize}
+
+\begin{tipbox}
+实操建议：在纸上速记关键点，同时录音，答辩结束后给答辩人，让答辩人自行整理成电子版，交答辩秘书修改，导师可进一步修改。
+\end{tipbox}
+
+\section{答辩程序（标准流程）}
+
+\begin{enumerate}
+  \item 培养单位负责人（龙老师），介绍答辩委员会成员。
+  \item 导师介绍答辩人情况。
+  \item 答辩人陈述（一般30--40分钟）。
+  \item 委员提问，答辩人回答（一般20--30分钟）。
+  \item 休会——委员会单独讨论。
+  \item \textbf{闭门讨论 \& 投票} $\leftarrow$ 你在这时做以下事：
+  \begin{itemize}
+    \item 分发表决票。
+    \item 请委员逐一无记名投票。
+    \item 收表决票，统计。
+    \item 将答辩决议投屏，根据委员意见修改答辩决议。
+    \item 打印答辩决议，请答辩委员签字。
+  \end{itemize}
+  \item 复会——主席宣读决议。
+  \item 答辩人致谢。
+  \item 献花并合影。
+\end{enumerate}
+
+\section{表决统计}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{表决项} & \textbf{格式参考} \\
+\midrule
+论文答辩         & 同意 / 不同意，\important{另附具体意见} \\
+是否建议授予学位 & 建议 / 不建议 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{warnbox}
+表决结果为\textbf{同意票$\geq 2/3$}通过。统计完成后请主席在表决结果上签字确认。
+\end{warnbox}
+
+\section{合影}
+
+安排专人负责。
+
+\section{突发情况预案}
+
+\begin{itemize}
+  \item \textbf{投影不行}：备好转接头，Mac用户注意提前通知带转接器。
+  \item \textbf{委员临时迟到}：让主席决定是等还是先开始，因为有录像，一般要等。
+  \item \textbf{票数不够}：略，这是主席的事。
+\end{itemize}
+
+\section{当天结束时}
+
+\begin{itemize}
+  \todoitem{收拾场地、归还设备}
+  \todoitem{把表决票原件收好（\important{这张纸非常重要}）}
+  \todoitem{把答辩决议收好（\important{这张纸非常重要}）}
+  \todoitem{把答辩委员酬金明细签字页收好（\important{这张纸非常重要}）}
+  \todoitem{把纸质记录拍照留存}
+  \todoitem{当天或第二天整理完电子版答辩记录}
+  \todoitem{聚餐庆祝（需提前与答辩人和导师预订地点，\important{自费}）}
+\end{itemize}
+
+% ============================================================
+% 第四章：答辩后归档
+% ============================================================
+\chapter{答辩后归档}
+
+\begin{tipbox}
+答辩结束不是终点，材料交齐才是。
+\end{tipbox}
+
+\section{第一步：移交重要文件}
+
+答辩结束后，将以下文件交给答辩人，并提醒其谨慎保存：
+
+\begin{itemize}
+  \item 答辩决议（主席签字原件）。
+  \item 表决票（原件）。
+\end{itemize}
+
+\begin{warnbox}
+这两份文件非常重要，不可丢失。
+\end{warnbox}
+
+\section{第二步：答辩记录}
+
+答辩记录需及时完成：
+
+\begin{enumerate}
+  \item 根据答辩当天的录音和速记，答辩人整理出答辩记录初稿。
+  \item 秘书修改。
+  \item 答辩人找导师进一步修改。
+  \item 定稿后签字，交给答辩人。
+\end{enumerate}
+
+\section{第三步：答辩酬金}
+
+\begin{enumerate}
+  \item 与导师商定答辩委员酬金金额。
+  \item 将答辩委员酬金明细交给学院。
+\end{enumerate}
+
+% ============================================================
+% 附录：相关链接
+% ============================================================
+\chapter{附录：相关链接汇总}
+
+\section{兰州大学}
+
+\begin{itemize}
+  \item 研究生院学位办：\url{https://ge.lzu.edu.cn/}
+  \item 核科学与技术学院：\url{https://snst.lzu.edu.cn/}
+  \item 学位申请书下载：\url{https://ge.lzu.edu.cn/xiazaizhuanqu/xuewei/index.html}
+  \item 答辩要求全文：\url{https://ge.lzu.edu.cn/xueweishouyu/guizhangzhidu/lunwenguanli/2020/1223/158945.html}
+\end{itemize}
+
+\section{工具推荐}
+
+\begin{itemize}
+  \item Typora（Markdown编辑器）：\url{https://typora.io/}
+  \item VS Code（免费代码/文本编辑器）：\url{https://code.visualstudio.com/}
+  \item 腾讯会议：\url{https://meeting.tencent.com/}
+  \item Git（版本管理）：\url{https://git-scm.com/}
+\end{itemize}
+
+\section{模板与实例文件}
+
+本指南附带的模板和实例文件位于 \texttt{templates/} 目录下，包括：
+
+\begin{itemize}
+  \item 预答辩日程表.docx
+  \item 答辩日程安排.docx
+  \item 答辩海报.pptx
+  \item 答辩委员会邮件.docx
+  \item 表决票.doc
+  \item 答辩决议.doc
+  \item 答辩委员酬金明细.docx
+  \item 合影背景.pptx
+  \item 兰州大学学位论文答辩要求及程序.doc
+\end{itemize}
+
+\end{document}
